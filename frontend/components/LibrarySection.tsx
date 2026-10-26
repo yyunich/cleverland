@@ -3,53 +3,57 @@ import { BookIcon, ClockIcon, CheckIcon } from "./icons";
 /** Бесплатная библиотека Cleverland (id используется в ссылках футера) */
 export default function LibrarySection() {
   return (
-    <section id="library" className="border-t border-white/10 bg-night-900/50">
+    <section id="library" className="border-t border-line bg-mist">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
-        <div className="grid items-center gap-12 lg:grid-cols-2">
+        <div className="grid items-center gap-14 lg:grid-cols-2">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-neon-lime">
-              Бесплатно для резидентов
-            </p>
-            <h2 className="mt-3 font-display text-3xl font-bold text-white sm:text-4xl">
-              Библиотека <span className="text-neon-gradient">Cleverland</span>
+            <p className="eyebrow">Бесплатно для резидентов</p>
+            <h2 className="mt-4 font-display text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">
+              Библиотека <span className="text-brand">Cleverland</span>
             </h2>
-            <p className="mt-5 max-w-xl text-base leading-relaxed text-slate-400">
+            <p className="mt-5 max-w-xl text-lg leading-relaxed text-ink-soft">
               Пространство на базе центра с книгами по психологии, бизнесу,
               копирайтингу и не только. Учиться полезно не только детям:
               резиденты центра могут взять книги домой бесплатно.
             </p>
-            <ul className="mt-6 space-y-3 text-sm text-slate-300">
-              <li className="flex items-center gap-2.5">
-                <CheckIcon className="h-4 w-4 shrink-0 text-neon-lime" />
+            <ul className="mt-7 space-y-3.5 text-[15px] text-ink">
+              <li className="flex items-center gap-3">
+                <span className="flex h-6 w-6 shrink-0 items-center justify-center bg-brand text-white">
+                  <CheckIcon className="h-3.5 w-3.5" />
+                </span>
                 Выдача резидентам на 14 дней
               </li>
-              <li className="flex items-center gap-2.5">
-                <CheckIcon className="h-4 w-4 shrink-0 text-neon-lime" />
+              <li className="flex items-center gap-3">
+                <span className="flex h-6 w-6 shrink-0 items-center justify-center bg-brand text-white">
+                  <CheckIcon className="h-3.5 w-3.5" />
+                </span>
                 По паспорту — просто и без формальностей
               </li>
-              <li className="flex items-center gap-2.5">
-                <CheckIcon className="h-4 w-4 shrink-0 text-neon-lime" />
+              <li className="flex items-center gap-3">
+                <span className="flex h-6 w-6 shrink-0 items-center justify-center bg-brand text-white">
+                  <CheckIcon className="h-3.5 w-3.5" />
+                </span>
                 Книги по психологии, бизнесу и копирайтингу
               </li>
             </ul>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2">
-            <div className="card-glass p-7">
-              <BookIcon className="h-8 w-8 text-neon-violet" />
-              <p className="mt-4 font-display text-xl font-semibold text-white">
+          <div className="grid gap-px bg-line sm:grid-cols-2">
+            <div className="flex flex-col justify-center bg-white p-9">
+              <BookIcon className="h-7 w-7 text-brand" />
+              <p className="mt-4 font-display text-3xl font-extrabold tracking-tight text-ink">
                 14 дней
               </p>
-              <p className="mt-1 text-sm text-slate-400">
+              <p className="mt-1.5 text-sm text-ink-soft">
                 срок выдачи книги домой
               </p>
             </div>
-            <div className="card-glass p-7">
-              <ClockIcon className="h-8 w-8 text-neon-cyan" />
-              <p className="mt-4 font-display text-xl font-semibold text-white">
+            <div className="flex flex-col justify-center bg-white p-9">
+              <ClockIcon className="h-7 w-7 text-brand" />
+              <p className="mt-4 font-display text-3xl font-extrabold tracking-tight text-ink">
                 10:00–21:00
               </p>
-              <p className="mt-1 text-sm text-slate-400">
+              <p className="mt-1.5 text-sm text-ink-soft">
                 центр открыт ежедневно
               </p>
             </div>

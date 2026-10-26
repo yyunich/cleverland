@@ -11,30 +11,33 @@ export default function CoursesSection() {
         eyebrow="Направления"
         title={
           <>
-            Каждый найдёт <span className="text-neon-gradient">своё</span>
+            Каждый найдёт <span className="text-brand">своё</span>
           </>
         }
         subtitle="Мы собрали направления по интересам и возрасту — от первого кода до профессиональной разработки, от языков до подготовки к экзаменам."
       />
 
-      <div className="mt-14 space-y-16">
-        {categoryOrder.map((cat) => {
+      <div className="mt-16 space-y-20">
+        {categoryOrder.map((cat, ci) => {
           const group = coursesByCategory(cat);
           if (group.length === 0) return null;
           return (
             <div key={cat}>
-              <div className="mb-6 flex flex-wrap items-end justify-between gap-3">
+              <div className="mb-7 flex items-end justify-between gap-4 border-b border-line pb-5">
                 <div>
-                  <h3 className="font-display text-xl font-semibold text-white sm:text-2xl">
+                  <p className="eyebrow !text-sm">
+                    {String(ci + 1).padStart(2, "0")} / {categoryOrder.length}
+                  </p>
+                  <h3 className="mt-2 font-display text-2xl font-extrabold tracking-tight text-ink sm:text-3xl">
                     {categories[cat].title}
                   </h3>
-                  <p className="mt-1 text-sm text-slate-400">
+                  <p className="mt-1.5 text-[15px] text-ink-soft">
                     {categories[cat].description}
                   </p>
                 </div>
                 <Link
                   href="/courses"
-                  className="text-sm font-medium text-neon-cyan transition-opacity hover:opacity-75"
+                  className="hidden shrink-0 text-sm font-semibold text-brand transition-opacity hover:opacity-70 sm:block"
                 >
                   Все курсы →
                 </Link>

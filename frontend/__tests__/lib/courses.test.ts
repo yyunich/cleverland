@@ -33,7 +33,6 @@ describe("каталог курсов", () => {
       expect(c.description.length).toBeGreaterThan(50);
       expect(c.whatYoullDo.length).toBeGreaterThan(0);
       expect(c.format.length).toBeGreaterThan(0);
-      expect(c.gradient).toMatch(/^from-/);
     }
   });
 

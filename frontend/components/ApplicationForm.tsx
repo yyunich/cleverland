@@ -56,20 +56,20 @@ export default function ApplicationForm({
 
   if (status === "success") {
     return (
-      <div className="card-glass flex flex-col items-center gap-4 p-10 text-center">
-        <div className="flex h-16 w-16 items-center justify-center rounded-full bg-neon-lime/15 text-neon-lime">
-          <CheckIcon className="h-8 w-8" />
+      <div className="border border-line bg-white p-10 text-center">
+        <div className="mx-auto flex h-14 w-14 items-center justify-center bg-brand text-white">
+          <CheckIcon className="h-7 w-7" />
         </div>
-        <h3 className="font-display text-2xl font-bold text-white">
-          Заявка отправлена! 🎉
+        <h3 className="mt-6 font-display text-2xl font-extrabold text-ink">
+          Заявка отправлена!
         </h3>
-        <p className="max-w-md text-sm leading-relaxed text-slate-400">
+        <p className="mx-auto mt-3 max-w-md text-[15px] leading-relaxed text-ink-soft">
           Спасибо! Администратор свяжется с вами в ближайшее время, ответит на
           вопросы и подберёт удобное время для бесплатного пробного урока.
         </p>
-        <p className="text-xs text-slate-500">
+        <p className="mt-4 text-sm text-ink-faint">
           А если не терпится — звоните:{" "}
-          <a href="tel:+375295694550" className="text-neon-cyan">
+          <a href="tel:+375295694550" className="font-semibold text-brand">
             +375 (29) 569-45-50
           </a>
         </p>
@@ -80,9 +80,9 @@ export default function ApplicationForm({
   return (
     <form
       onSubmit={onSubmit}
-      className={`card-glass ${compact ? "p-7" : "p-8"} space-y-4`}
+      className={`border border-line bg-white ${compact ? "p-7" : "p-8 sm:p-10"} space-y-7`}
     >
-      <div className="grid gap-4 sm:grid-cols-2">
+      <div className="grid gap-x-8 gap-y-7 sm:grid-cols-2">
         <div>
           <label htmlFor="parent_name" className="sr-only">
             Имя родителя
@@ -115,9 +115,7 @@ export default function ApplicationForm({
             autoComplete="tel"
           />
         </div>
-      </div>
 
-      <div className="grid gap-4 sm:grid-cols-2">
         <div>
           <label htmlFor="child_age" className="sr-only">
             Возраст ребёнка / класс
@@ -143,7 +141,7 @@ export default function ApplicationForm({
             className="field appearance-none"
           >
             {courseOptions.map((o) => (
-              <option key={o.value} value={o.value} className="bg-night-800">
+              <option key={o.value} value={o.value}>
                 {o.label}
               </option>
             ))}
@@ -151,16 +149,22 @@ export default function ApplicationForm({
         </div>
       </div>
 
-      <button type="submit" disabled={status === "sending"} className="btn-primary w-full disabled:opacity-60">
-        {status === "sending" ? "Отправляем…" : "Записаться на бесплатный пробный урок"}
+      <button
+        type="submit"
+        disabled={status === "sending"}
+        className="btn-dark w-full !py-4 disabled:opacity-60"
+      >
+        {status === "sending"
+          ? "Отправляем…"
+          : "Записаться на бесплатный пробный урок"}
       </button>
 
-      <p className="text-center text-xs text-slate-500">
+      <p className="text-center text-xs text-ink-faint">
         Нажимая кнопку, вы соглашаетесь на обработку персональных данных.
       </p>
 
       {status === "error" && (
-        <p className="rounded-xl border border-rose-500/30 bg-rose-500/10 px-4 py-3 text-sm text-rose-300">
+        <p className="border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-600">
           {error}
         </p>
       )}

@@ -1,4 +1,4 @@
-// ============================================================
+﻿// ============================================================
 // Данные о курсах IT-школы Cleverland (г. Орша)
 // Источники: официальные сведения компании + Instagram @cleverland_orsha
 // ============================================================
@@ -15,10 +15,6 @@ export interface Course {
   description: string;
   whatYoullDo: string[];
   format: string[];
-  /** Градиентные акценты карточки (от/до) */
-  gradient: string;
-  /** Неоновая тень */
-  glow: string;
   featured?: boolean;
   examSubjects?: string[];
 }
@@ -66,8 +62,6 @@ export const courses: Course[] = [
       "Развивает логику, воображение и творческое мышление",
     ],
     format: ["Очно в центре Орши", "Группы до 8 человек"],
-    gradient: "from-violet-500 to-fuchsia-500",
-    glow: "shadow-glow",
   },
   {
     slug: "roblox",
@@ -85,8 +79,6 @@ export const courses: Course[] = [
       "Работает с бонусами, GamePass и другими возможностями платформы",
     ],
     format: ["1 раз в неделю", "Очно в центре Орши", "Подходит новичкам"],
-    gradient: "from-pink-500 to-rose-500",
-    glow: "shadow-glow-pink",
   },
   {
     slug: "python",
@@ -103,8 +95,6 @@ export const courses: Course[] = [
       "Осваивает синтаксис популярного языка на практике",
     ],
     format: ["Очно в центре Орши", "Группы до 8 человек"],
-    gradient: "from-cyan-400 to-sky-500",
-    glow: "shadow-glow-cyan",
   },
   {
     slug: "godot",
@@ -121,8 +111,6 @@ export const courses: Course[] = [
       "Доводит проекты до играбельной версии",
     ],
     format: ["Очно в центре Орши", "Группы до 8 человек"],
-    gradient: "from-indigo-500 to-violet-500",
-    glow: "shadow-glow",
   },
   {
     slug: "blender",
@@ -139,8 +127,6 @@ export const courses: Course[] = [
       "Собирает собственное 3D-портфолио",
     ],
     format: ["Очно в центре Орши", "Группы до 8 человек"],
-    gradient: "from-amber-400 to-orange-500",
-    glow: "shadow-glow-pink",
   },
   {
     slug: "mysql",
@@ -157,8 +143,6 @@ export const courses: Course[] = [
       "Собирает REST API для реальных проектов: интернет-магазин, блог",
     ],
     format: ["1 занятие в неделю по 120 минут", "Очно в центре Орши"],
-    gradient: "from-emerald-400 to-teal-500",
-    glow: "shadow-glow-cyan",
   },
   {
     slug: "web-design",
@@ -175,8 +159,6 @@ export const courses: Course[] = [
       "Работает с современными инструментами дизайнера",
     ],
     format: ["Очно в центре Орши", "Группы до 8 человек"],
-    gradient: "from-fuchsia-500 to-pink-500",
-    glow: "shadow-glow-pink",
   },
   {
     slug: "robotics",
@@ -193,8 +175,6 @@ export const courses: Course[] = [
       "Участвует в командных инженерных задачах",
     ],
     format: ["Очно в центре Орши", "Группы до 8 человек"],
-    gradient: "from-lime-400 to-emerald-500",
-    glow: "shadow-glow-cyan",
   },
 
   // ---------------- ИНОСТРАННЫЕ ЯЗЫКИ ----------------
@@ -213,8 +193,6 @@ export const courses: Course[] = [
       "Готовится к школе и экзаменам с уверенностью",
     ],
     format: ["2 раза в неделю", "Занятия 45–60 минут"],
-    gradient: "from-sky-400 to-indigo-500",
-    glow: "shadow-glow-cyan",
   },
 
   // ---------------- ЭКЗАМЕНЫ ----------------
@@ -239,8 +217,6 @@ export const courses: Course[] = [
       "Английский язык",
       "Русский язык",
     ],
-    gradient: "from-orange-400 to-rose-500",
-    glow: "shadow-glow-pink",
     featured: true,
   },
 
@@ -264,8 +240,6 @@ export const courses: Course[] = [
       "Курс рассчитан на 3 месяца",
       "Группы до 6 человек",
     ],
-    gradient: "from-teal-400 to-cyan-500",
-    glow: "shadow-glow-cyan",
   },
 ];
 
@@ -291,3 +265,5 @@ export const contactInfo = {
   instagram: "https://www.instagram.com/cleverland_orsha/",
   vk: "https://vk.ru/cleverlandorsha",
 };
+
+

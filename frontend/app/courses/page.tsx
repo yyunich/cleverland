@@ -17,19 +17,19 @@ export const metadata: Metadata = {
 export default function CoursesPage() {
   return (
     <>
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-14 pb-8">
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-14 pb-10">
         <SectionHeading
           eyebrow="Каталог"
           title={
             <>
-              Курсы и <span className="text-neon-gradient">направления</span>
+              Курсы и <span className="text-brand">направления</span>
             </>
           }
           subtitle="Выбирайте по возрасту и интересам ребёнка — от первого кода до профессиональной разработки. На любой курс можно записаться на бесплатный пробный урок."
         />
       </section>
 
-      {categoryOrder.map((cat) => {
+      {categoryOrder.map((cat, ci) => {
         const group = coursesByCategory(cat);
         if (group.length === 0) return null;
         return (
@@ -37,11 +37,14 @@ export default function CoursesPage() {
             key={cat}
             className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10"
           >
-            <div className="mb-7">
-              <h2 className="font-display text-2xl font-semibold text-white sm:text-3xl">
+            <div className="mb-7 border-b border-line pb-5">
+              <p className="eyebrow !text-sm">
+                {String(ci + 1).padStart(2, "0")} / {categoryOrder.length}
+              </p>
+              <h2 className="mt-2 font-display text-2xl font-extrabold tracking-tight text-ink sm:text-3xl">
                 {categories[cat].title}
               </h2>
-              <p className="mt-1.5 max-w-2xl text-sm text-slate-400">
+              <p className="mt-1.5 text-[15px] text-ink-soft">
                 {categories[cat].description}
               </p>
             </div>
@@ -54,7 +57,7 @@ export default function CoursesPage() {
         );
       })}
 
-      <div className="pt-10">
+      <div className="pt-14">
         <CtaSection />
       </div>
     </>

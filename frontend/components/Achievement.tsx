@@ -1,61 +1,57 @@
 import Link from "next/link";
 import { TrophyIcon } from "./icons";
 
-/** Достижения школы: международные фестивали, IT-лагеря */
+/** Достижения школы — чёрный CTA-блок в стиле Skillbox */
 export default function Achievement() {
   return (
     <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
-      <div className="card-glass relative overflow-hidden p-8 sm:p-12">
-        <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-neon-pink/20 blur-[100px]" />
-        <div className="pointer-events-none absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-neon-violet/20 blur-[100px]" />
+      <div className="grid gap-0 bg-footer text-white lg:grid-cols-2">
+        {/* Левая часть — контент на чёрном */}
+        <div className="p-8 sm:p-12 lg:p-16">
+          <p className="flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em] text-brand">
+            <TrophyIcon className="h-5 w-5" />
+            Наши достижения
+          </p>
+          <h2 className="mt-5 font-display text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl">
+            Ученики Cleverland побеждают на международных фестивалях
+          </h2>
+          <p className="mt-6 max-w-xl text-base leading-relaxed text-white/70">
+            Наши студенты участвуют в IT-фестивалях и турнирах по
+            программированию. Так, Даниил Котович (14 лет) занял{" "}
+            <span className="font-semibold text-white">
+              2-е место по Python
+            </span>{" "}
+            на фестивале робототехники и программирования R:ED FEST с
+            результатом 35,5 из 36 баллов.
+          </p>
+          <p className="mt-4 max-w-xl text-base leading-relaxed text-white/70">
+            А в каникулы школа проводит тематические IT-лагеря: дети создают
+            проекты и защищают их перед родителями и преподавателями.
+          </p>
+          <Link href="/courses" className="btn-white mt-9">
+            Выбрать направление
+          </Link>
+        </div>
 
-        <div className="relative grid items-center gap-10 lg:grid-cols-5">
-          <div className="lg:col-span-3">
-            <p className="flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.25em] text-neon-pink">
-              <TrophyIcon className="h-5 w-5" />
-              Наши достижения
-            </p>
-            <h2 className="mt-4 font-display text-2xl font-bold text-white sm:text-3xl">
-              Ученики Cleverland побеждают{" "}
-              <span className="text-neon-gradient">на международных фестивалях</span>
-            </h2>
-            <p className="mt-5 max-w-xl text-base leading-relaxed text-slate-400">
-              Наши студенты участвуют в IT-фестивалях и турнирах по
-              программированию. Так, Даниил Котович (14 лет) занял{" "}
-              <span className="font-semibold text-white">
-                2-е место по Python
-              </span>{" "}
-              на фестивале робототехники и программирования R:ED FEST с
-              результатом 35,5 из 36 баллов.
-            </p>
-            <p className="mt-4 max-w-xl text-base leading-relaxed text-slate-400">
-              А в каникулы школа проводит тематические IT-лагеря: дети создают
-              проекты и защищают их перед родителями и преподавателями.
-            </p>
-            <Link href="/courses" className="btn-outline mt-7">
-              Выбрать направление
-            </Link>
-          </div>
-
-          <div className="lg:col-span-2">
-            <div className="rounded-3xl border border-neon-pink/30 bg-night-900/70 p-8 text-center shadow-glow-pink">
-              <p className="font-display text-6xl font-bold text-neon-gradient">
-                №2
-              </p>
-              <p className="mt-2 font-display text-lg text-white">место по Python</p>
-              <p className="mt-1 text-sm text-slate-400">
-                R:ED FEST — международный фестиваль робототехники и
-                программирования
-              </p>
-              <div className="mt-6 rounded-2xl border border-white/10 bg-white/5 py-4">
-                <p className="font-display text-3xl font-bold text-white">
-                  35,5<span className="text-neon-pink text-xl">/36</span>
-                </p>
-                <p className="mt-1 text-xs uppercase tracking-widest text-slate-500">
-                  баллов из максимально возможных
-                </p>
-              </div>
-            </div>
+        {/* Правая часть — крупная цифра на чёрном */}
+        <div className="flex flex-col justify-center border-t border-white/10 p-8 sm:p-12 lg:border-l lg:border-t-0 lg:p-16">
+          <p className="font-display text-[5.5rem] font-extrabold leading-none tracking-tight text-white sm:text-[7rem]">
+            №2
+          </p>
+          <p className="mt-4 font-display text-xl font-bold text-white">
+            место по Python
+          </p>
+          <p className="mt-1.5 text-sm text-white/60">
+            R:ED FEST — международный фестиваль робототехники и
+            программирования
+          </p>
+          <div className="mt-8 inline-flex w-fit items-baseline gap-2 bg-promo px-5 py-3">
+            <span className="font-display text-3xl font-extrabold text-ink">
+              35,5
+            </span>
+            <span className="text-sm font-semibold text-ink">
+              / 36 баллов из максимально возможных
+            </span>
           </div>
         </div>
       </div>

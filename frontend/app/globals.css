@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 html {
@@ -11,82 +11,92 @@ html {
 }
 
 body {
-  @apply bg-night-950 text-slate-200 font-sans antialiased;
-  background-image: radial-gradient(
-      ellipse 80% 50% at 20% -10%,
-      rgba(139, 92, 246, 0.14),
-      transparent
-    ),
-    radial-gradient(
-      ellipse 60% 40% at 90% 10%,
-      rgba(34, 211, 238, 0.08),
-      transparent
-    );
+  @apply bg-white text-ink font-sans antialiased;
+  font-feature-settings: "ss01" on;
 }
 
 ::selection {
-  background: rgba(139, 92, 246, 0.45);
+  background: rgba(0, 80, 255, 0.85);
   color: #fff;
 }
 
-/* Тонкая неоновая сетка на фоне */
-.bg-grid {
-  background-image: linear-gradient(rgba(139, 92, 246, 0.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(139, 92, 246, 0.07) 1px, transparent 1px);
-  background-size: 44px 44px;
+/* Тонкая светлая сетка для hero */
+.bg-grid-light {
+  background-image:
+    linear-gradient(rgba(28, 29, 33, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(28, 29, 33, 0.045) 1px, transparent 1px);
+  background-size: 48px 48px;
 }
 
-/* Текст с неоновым градиентом */
-.text-neon-gradient {
-  @apply bg-neon-gradient bg-clip-text text-transparent;
+/* Синий акцент-подчёркивание в заголовках (фирменный приём Skillbox) */
+.brand-marker {
+  @apply relative inline-block;
+}
+.brand-marker::after {
+  content: "";
+  @apply absolute left-0 -bottom-1 h-1 w-full bg-brand/25;
 }
 
-/* Карточки */
-.card-glass {
-  @apply rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-sm;
-  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+/* Карточки: прямые углы, тонкая рамка, hover-тень */
+.card {
+  @apply rounded-none border border-line bg-white;
+  transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
 }
-
-.card-glass:hover {
-  @apply border-neon-violet/50;
-  transform: translateY(-4px);
+.card:hover {
+  @apply border-line shadow-card-hover;
+  transform: translateY(-3px);
 }
 
 /* Кнопки */
 .btn {
-  @apply inline-flex items-center justify-center gap-2 rounded-xl font-semibold transition-all duration-200;
+  @apply inline-flex items-center justify-center gap-2 rounded-none font-semibold transition-all duration-150;
 }
 
 .btn-primary {
-  @apply btn bg-neon-gradient text-white shadow-glow hover:opacity-90 hover:shadow-glow-pink px-6 py-3.5 text-base;
+  @apply btn bg-brand px-6 py-3.5 text-base text-white hover:bg-brand-dark active:translate-y-px;
+}
+
+.btn-dark {
+  @apply btn bg-ink px-6 py-3.5 text-base text-white hover:bg-black active:translate-y-px;
 }
 
 .btn-outline {
-  @apply btn border border-white/15 bg-white/[0.03] px-6 py-3.5 text-base hover:border-neon-cyan/60 hover:text-neon-cyan;
+  @apply btn border border-line bg-transparent px-6 py-3.5 text-base text-ink hover:border-ink active:translate-y-px;
 }
 
-/* Поля формы */
+.btn-white {
+  @apply btn bg-white px-6 py-3.5 text-base text-ink hover:bg-mist active:translate-y-px;
+}
+
+.btn-ghost-dark {
+  @apply btn border border-white/40 px-6 py-3.5 text-base text-white hover:border-white active:translate-y-px;
+}
+
+/* Поля формы в стиле Skillbox: без рамки-коробки, нижняя линия */
 .field {
-  @apply w-full rounded-xl border border-white/10 bg-night-800/70 px-4 py-3 text-white placeholder:text-slate-500 outline-none transition-colors focus:border-neon-violet/70 focus:ring-2 focus:ring-neon-violet/30;
+  @apply w-full rounded-none border-0 border-b border-line bg-transparent px-0 py-3 text-base text-ink placeholder:text-ink-faint outline-none transition-colors focus:border-ink;
 }
 
-/* Скрыть label визуально, но оставить для скринридеров */
-.sr-only {
-  @apply absolute w-px h-px -m-px overflow-hidden whitespace-nowrap border-0 p-0;
-  clip: rect(0, 0, 0, 0);
+.field-box {
+  @apply w-full rounded-none border border-line bg-white px-4 py-3 text-base text-ink placeholder:text-ink-faint outline-none transition-colors focus:border-ink;
 }
 
-/* Тонкий скроллбар */
+/* Эй-бров над заголовками */
+.eyebrow {
+  @apply text-sm font-semibold uppercase tracking-[0.18em] text-brand;
+}
+
+/* Тонкий скроллбар в светлой теме */
 ::-webkit-scrollbar {
   width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #0a0a18;
+  background: #f5f6f8;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(139, 92, 246, 0.4);
-  border-radius: 8px;
+  background: #c8cbd1;
+  border-radius: 6px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(139, 92, 246, 0.7);
+  background: #9a9da5;
 }
