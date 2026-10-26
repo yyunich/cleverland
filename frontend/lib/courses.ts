@@ -262,6 +262,7 @@ export const contactInfo = {
   addressDetail: "Бизнес-инкубатор, 2-й этаж",
   workHours: "Ежедневно с 10:00 до 21:00",
   coordinates: "54.5117, 30.4264",
+  yandexMaps: "https://yandex.by/maps/-/CXbIBQ8H",
   instagram: "https://www.instagram.com/cleverland_orsha/",
   vk: "https://vk.ru/cleverlandorsha",
 };

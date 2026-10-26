@@ -154,7 +154,7 @@ export default async function ContactsPage({
                 остановки общественного транспорта и удобная парковка.
               </p>
               <a
-                href={`https://yandex.by/maps/?pt=${contactInfo.coordinates.replace(" ", ",")}&z=16&l=map`}
+                href={contactInfo.yandexMaps}
                 target="_blank"
                 rel="noreferrer"
                 className="btn-outline mt-5 !px-5 !py-2.5 text-sm"
