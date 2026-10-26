@@ -1,11 +1,17 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { submitApplication } from "@/lib/api";
 import { courses } from "@/lib/courses";
 import { CheckIcon } from "./icons";
 
-type Status = "idle" | "sending" | "success" | "error";
+type Status = "idle" | "sending";
+
+type Banner = {
+  type: "success" | "error";
+  title: string;
+  text: string;
+};
 
 const courseOptions = [
   { value: "consultation", label: "Ещё не определились — нужна консультация" },
@@ -20,13 +26,24 @@ export default function ApplicationForm({
   compact?: boolean;
 }) {
   const [status, setStatus] = useState<Status>("idle");
-  const [error, setError] = useState("");
+  const [banner, setBanner] = useState<Banner | null>(null);
   const [selectedCourse, setSelectedCourse] = useState(defaultCourse);
+
+  // Автоматически прячем уведомление через 8 секунд
+  useEffect(() => {
+    if (!banner) return;
+    const timer = setTimeout(() => setBanner(null), 8000);
+    return () => clearTimeout(timer);
+  }, [banner]);
+
+  function closeBanner() {
+    setBanner(null);
+  }
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setStatus("sending");
-    setError("");
+    setBanner(null);
 
     const form = e.currentTarget;
     const data = new FormData(form);
@@ -45,43 +62,74 @@ export default function ApplicationForm({
     });
 
     if (result.ok) {
-      setStatus("success");
       form.reset();
       setSelectedCourse(defaultCourse);
+      setBanner({
+        type: "success",
+        title: "Заявка отправлена!",
+        text: "Администратор перезвонит в ближайшее время, подберёт направление и запишет на бесплатный пробный урок. Не терпится? Звоните: +375 (29) 569-45-50.",
+      });
     } else {
-      setStatus("error");
-      setError(result.error);
+      setBanner({
+        type: "error",
+        title: "Не удалось отправить заявку",
+        text: result.error,
+      });
     }
-  }
-
-  if (status === "success") {
-    return (
-      <div className="border border-line bg-white p-10 text-center">
-        <div className="mx-auto flex h-14 w-14 items-center justify-center bg-brand text-white">
-          <CheckIcon className="h-7 w-7" />
-        </div>
-        <h3 className="mt-6 font-display text-2xl font-extrabold text-ink">
-          Заявка отправлена!
-        </h3>
-        <p className="mx-auto mt-3 max-w-md text-[15px] leading-relaxed text-ink-soft">
-          Спасибо! Администратор свяжется с вами в ближайшее время, ответит на
-          вопросы и подберёт удобное время для бесплатного пробного урока.
-        </p>
-        <p className="mt-4 text-sm text-ink-faint">
-          А если не терпится — звоните:{" "}
-          <a href="tel:+375295694550" className="font-semibold text-brand">
-            +375 (29) 569-45-50
-          </a>
-        </p>
-      </div>
-    );
+    setStatus("idle");
   }
 
   return (
     <form
       onSubmit={onSubmit}
-      className={`border border-line bg-white ${compact ? "p-7" : "p-8 sm:p-10"} space-y-7`}
+      className={`relative border border-line bg-white ${
+        compact ? "p-7" : "p-8 sm:p-10"
+      } space-y-7`}
     >
+      {/* Уведомление о результате отправки */}
+      {banner && (
+        <div
+          role="status"
+          className={`flex items-start gap-3 border-l-4 p-4 ${
+            banner.type === "success"
+              ? "border-brand bg-brand-faint"
+              : "border-red-500 bg-red-50"
+          }`}
+        >
+          <span
+            className={`mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center text-white ${
+              banner.type === "success" ? "bg-brand" : "bg-red-500"
+            }`}
+          >
+            {banner.type === "success" ? (
+              <CheckIcon className="h-3.5 w-3.5" />
+            ) : (
+              <span className="text-sm font-bold">!</span>
+            )}
+          </span>
+          <div className="flex-1">
+            <p className="text-sm font-bold text-ink">{banner.title}</p>
+            <p
+              className={`mt-1 text-sm leading-relaxed ${
+                banner.type === "success" ? "text-ink-soft" : "text-red-700"
+              }`}
+            >
+              {banner.text}
+            </p>
+          </div>
+          <button
+            type="button"
+            onClick={closeBanner}
+            aria-label="Закрыть уведомление"
+            className="-mr-1 -mt-1 flex h-7 w-7 shrink-0 items-center justify-center text-ink-faint transition-colors hover:text-ink"
+          >
+            <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M18 6 6 18M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      )}
+
       <div className="grid gap-x-8 gap-y-7 sm:grid-cols-2">
         <div>
           <label htmlFor="parent_name" className="sr-only">
@@ -162,12 +210,6 @@ export default function ApplicationForm({
       <p className="text-center text-xs text-ink-faint">
         Нажимая кнопку, вы соглашаетесь на обработку персональных данных.
       </p>
-
-      {status === "error" && (
-        <p className="border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-600">
-          {error}
-        </p>
-      )}
     </form>
   );
 }

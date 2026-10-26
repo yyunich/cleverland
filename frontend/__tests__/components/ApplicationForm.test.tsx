@@ -53,6 +53,15 @@ describe("ApplicationForm", () => {
     // Сообщение об успехе
     expect(await screen.findByText(/Заявка отправлена/)).toBeInTheDocument();
 
+    // Форма НЕ исчезает — остаётся на месте, уведомление поверх
+    expect(
+      screen.getByRole("button", { name: /Записаться на бесплатный пробный урок/ })
+    ).toBeInTheDocument();
+
+    // Уведомление можно закрыть крестиком
+    await user.click(screen.getByRole("button", { name: /Закрыть уведомление/ }));
+    expect(screen.queryByText(/Заявка отправлена/)).not.toBeInTheDocument();
+
     // Запрос ушёл на бэкенд с правильными данными
     expect(fetchMock).toHaveBeenCalledTimes(1);
     const [url, init] = fetchMock.mock.calls[0];
@@ -81,7 +90,7 @@ describe("ApplicationForm", () => {
     );
 
     expect(
-      await screen.findByText(/Не удалось отправить заявку/)
+      await screen.findByText(/Проверьте, запущен ли бэкенд/)
     ).toBeInTheDocument();
   });
 

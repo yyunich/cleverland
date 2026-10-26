@@ -28,7 +28,10 @@ class Settings:
     admin_token: str = os.getenv("ADMIN_TOKEN", "cleverland-admin")
 
     # Разрешённые источники (origin) для фронтенда
-    cors_origins: str = os.getenv("CORS_ORIGINS", "http://localhost:3000")
+    cors_origins: str = os.getenv(
+        "CORS_ORIGINS",
+        "http://localhost:3000,http://127.0.0.1:3000",
+    )
 
 
 @lru_cache
