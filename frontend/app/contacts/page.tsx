@@ -32,10 +32,10 @@ export default async function ContactsPage({
     return typeof v === "string" ? v : "";
   };
 
-  const parentName = decodeURIComponent(get("parent_name"));
-  const phone = decodeURIComponent(get("phone"));
-  const childAge = decodeURIComponent(get("child_age"));
-  const courseSlug = decodeURIComponent(get("course"));
+  const parentName = get("parent_name");
+  const phone = get("phone");
+  const childAge = get("child_age");
+  const courseSlug = get("course");
   const defaultCourse = courseBySlug(courseSlug) ? courseSlug : "";
   return (
     <>
