@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-night-950 text-slate-200 font-sans antialiased;
+  background-image: radial-gradient(
+      ellipse 80% 50% at 20% -10%,
+      rgba(139, 92, 246, 0.14),
+      transparent
+    ),
+    radial-gradient(
+      ellipse 60% 40% at 90% 10%,
+      rgba(34, 211, 238, 0.08),
+      transparent
+    );
+}
+
+::selection {
+  background: rgba(139, 92, 246, 0.45);
+  color: #fff;
+}
+
+/* Тонкая неоновая сетка на фоне */
+.bg-grid {
+  background-image: linear-gradient(rgba(139, 92, 246, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(139, 92, 246, 0.07) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+/* Текст с неоновым градиентом */
+.text-neon-gradient {
+  @apply bg-neon-gradient bg-clip-text text-transparent;
+}
+
+/* Карточки */
+.card-glass {
+  @apply rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-sm;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card-glass:hover {
+  @apply border-neon-violet/50;
+  transform: translateY(-4px);
+}
+
+/* Кнопки */
+.btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-xl font-semibold transition-all duration-200;
+}
+
+.btn-primary {
+  @apply btn bg-neon-gradient text-white shadow-glow hover:opacity-90 hover:shadow-glow-pink px-6 py-3.5 text-base;
+}
+
+.btn-outline {
+  @apply btn border border-white/15 bg-white/[0.03] px-6 py-3.5 text-base hover:border-neon-cyan/60 hover:text-neon-cyan;
+}
+
+/* Поля формы */
+.field {
+  @apply w-full rounded-xl border border-white/10 bg-night-800/70 px-4 py-3 text-white placeholder:text-slate-500 outline-none transition-colors focus:border-neon-violet/70 focus:ring-2 focus:ring-neon-violet/30;
+}
+
+/* Скрыть label визуально, но оставить для скринридеров */
+.sr-only {
+  @apply absolute w-px h-px -m-px overflow-hidden whitespace-nowrap border-0 p-0;
+  clip: rect(0, 0, 0, 0);
+}
+
+/* Тонкий скроллбар */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a18;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(139, 92, 246, 0.4);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 92, 246, 0.7);
+}
