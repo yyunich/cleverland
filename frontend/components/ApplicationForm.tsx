@@ -21,13 +21,23 @@ const courseOptions = [
 export default function ApplicationForm({
   defaultCourse = "",
   compact = false,
+  initialParentName = "",
+  initialPhone = "",
+  initialChildAge = "",
 }: {
   defaultCourse?: string;
   compact?: boolean;
+  /** Данные для предзаполнения формы (например, из URL-параметров) */
+  initialParentName?: string;
+  initialPhone?: string;
+  initialChildAge?: string;
 }) {
   const [status, setStatus] = useState<Status>("idle");
   const [banner, setBanner] = useState<Banner | null>(null);
   const [selectedCourse, setSelectedCourse] = useState(defaultCourse);
+  const [parentName, setParentName] = useState(initialParentName);
+  const [phone, setPhone] = useState(initialPhone);
+  const [childAge, setChildAge] = useState(initialChildAge);
 
   // Автоматически прячем уведомление через 8 секунд
   useEffect(() => {
@@ -46,23 +56,21 @@ export default function ApplicationForm({
     setBanner(null);
 
     const form = e.currentTarget;
-    const data = new FormData(form);
 
-    const courseValue =
-      selectedCourse ||
-      (data.get("course") as string) ||
-      "Консультация по направлениям";
-
+    const courseValue = selectedCourse || "Консультация по направлениям";
     const courseOption = courseOptions.find((c) => c.value === courseValue);
     const result = await submitApplication({
-      parent_name: String(data.get("parent_name") || ""),
-      phone: String(data.get("phone") || ""),
-      child_age: String(data.get("child_age") || "") || undefined,
+      parent_name: parentName,
+      phone,
+      child_age: childAge || undefined,
       course: courseOption?.label ?? courseValue,
     });
 
     if (result.ok) {
       form.reset();
+      setParentName("");
+      setPhone("");
+      setChildAge("");
       setSelectedCourse(defaultCourse);
       setBanner({
         type: "success",
@@ -145,6 +153,8 @@ export default function ApplicationForm({
             placeholder="Имя родителя *"
             className="field"
             autoComplete="name"
+            value={parentName}
+            onChange={(e) => setParentName(e.target.value)}
           />
         </div>
         <div>
@@ -161,6 +171,8 @@ export default function ApplicationForm({
             placeholder="Телефон *"
             className="field"
             autoComplete="tel"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
           />
         </div>
 
@@ -175,6 +187,8 @@ export default function ApplicationForm({
             maxLength={40}
             placeholder="Возраст ребёнка / класс"
             className="field"
+            value={childAge}
+            onChange={(e) => setChildAge(e.target.value)}
           />
         </div>
         <div>

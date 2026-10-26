@@ -10,7 +10,7 @@ import {
   ViberIcon,
   VkIcon,
 } from "@/components/icons";
-import { contactInfo } from "@/lib/courses";
+import { contactInfo, courseBySlug } from "@/lib/courses";
 
 export const metadata: Metadata = {
   title: "Контакты и запись",
@@ -18,7 +18,25 @@ export const metadata: Metadata = {
     "IT-школа Cleverland в Орше: ул. Мира, 8 (бизнес-инкубатор, 2-й этаж). Телефоны +375 (29) 569-45-50, +375 (29) 637-60-34. Ежедневно с 10:00 до 21:00. Запись на бесплатный пробный урок.",
 };
 
-export default function ContactsPage() {
+export default async function ContactsPage({
+  searchParams,
+}: {
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
+}) {
+  // Подхватываем данные из URL (глубокие ссылки):
+  // /contacts?parent_name=Иван&phone=%2B37529...&course=scratch
+  const params = await searchParams;
+
+  const get = (key: string): string => {
+    const v = params[key];
+    return typeof v === "string" ? v : "";
+  };
+
+  const parentName = decodeURIComponent(get("parent_name"));
+  const phone = decodeURIComponent(get("phone"));
+  const childAge = decodeURIComponent(get("child_age"));
+  const courseSlug = decodeURIComponent(get("course"));
+  const defaultCourse = courseBySlug(courseSlug) ? courseSlug : "";
   return (
     <>
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-14 pb-16 lg:pb-24">
@@ -155,7 +173,12 @@ export default function ContactsPage() {
               <p className="mt-2 mb-6 text-sm text-ink-soft">
                 Бесплатно · подберём направление по возрасту ребёнка
               </p>
-              <ApplicationForm />
+              <ApplicationForm
+                defaultCourse={defaultCourse}
+                initialParentName={parentName}
+                initialPhone={phone}
+                initialChildAge={childAge}
+              />
             </div>
           </div>
         </div>
