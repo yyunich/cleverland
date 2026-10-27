@@ -158,7 +158,7 @@ export default function Footer() {
 
         {/* Гигантская контурная типографика — signature detail в футере */}
         <div className="pointer-events-none mt-10 select-none overflow-hidden" aria-hidden="true">
-          <p className="text-outline-giant-light whitespace-nowrap text-center font-display text-[17vw] font-extrabold leading-[0.85] tracking-tight">
+          <p className="text-outline-giant-light whitespace-nowrap text-center font-display text-[clamp(2.5rem,11vw,8rem)] font-extrabold leading-[0.88] tracking-tight">
             CLEVERLAND
           </p>
         </div>

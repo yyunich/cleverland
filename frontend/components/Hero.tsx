@@ -42,9 +42,9 @@ export default function Hero() {
       {/* Signature moment: гигантская контурная типографика за hero */}
       <Parallax
         speed={0.14}
-        className="pointer-events-none absolute top-6 right-0 left-0 select-none"
+        className="pointer-events-none absolute top-8 right-0 left-0 select-none"
       >
-        <p className="text-outline-giant-light whitespace-nowrap text-center font-display text-[19vw] font-extrabold leading-none tracking-tight">
+        <p className="text-outline-giant-light whitespace-nowrap text-center font-display text-[clamp(3rem,13vw,9.5rem)] font-extrabold leading-[0.9] tracking-tight">
           CLEVERLAND
         </p>
       </Parallax>
