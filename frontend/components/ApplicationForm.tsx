@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useState } from "react";
 import { submitApplication } from "@/lib/api";
@@ -97,7 +97,7 @@ export default function ApplicationForm({
     <form
       onSubmit={onSubmit}
       className={`relative border ${
-        dark ? "border-white/15 bg-white/[0.04]" : "border-line bg-white"
+        dark ? "border-white/15 bg-surface/[0.04]" : "border-line bg-surface"
       } ${compact ? "p-7" : "p-8 sm:p-10"} space-y-7`}
     >
       {/* Уведомление о результате отправки */}
@@ -255,3 +255,4 @@ export default function ApplicationForm({
     </form>
   );
 }
+

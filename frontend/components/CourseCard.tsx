@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import type { Course } from "@/lib/courses";
 import { ArrowRightIcon, courseIcon } from "./icons";
 
@@ -15,7 +15,7 @@ export default function CourseCard({
   return (
     <Link
       href={`/courses/${course.slug}`}
-      className={`card group relative flex flex-col bg-white ${
+      className={`card group relative flex flex-col bg-surface ${
         compact ? "p-6" : "p-7"
       }`}
     >
@@ -48,3 +48,4 @@ export default function CourseCard({
     </Link>
   );
 }
+

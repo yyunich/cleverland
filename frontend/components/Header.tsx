@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -30,7 +30,7 @@ export default function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 border-b bg-white/95 backdrop-blur transition-shadow ${
+      className={`sticky top-0 z-50 border-b bg-surface/95 backdrop-blur transition-shadow ${
         scrolled ? "border-line shadow-card" : "border-transparent"
       }`}
     >
@@ -99,7 +99,7 @@ export default function Header() {
 
       {/* Мобильное меню */}
       {menuOpen && (
-        <div className="md:hidden border-t border-line bg-white">
+        <div className="md:hidden border-t border-line bg-surface">
           <nav className="flex flex-col gap-1 px-4 py-4">
             {nav.map((item) => (
               <Link
@@ -130,3 +130,4 @@ export default function Header() {
     </header>
   );
 }
+

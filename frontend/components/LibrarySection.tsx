@@ -1,4 +1,4 @@
-import Reveal from "./Reveal";
+﻿import Reveal from "./Reveal";
 import { BookIcon, ClockIcon, CheckIcon } from "./icons";
 
 /** Бесплатная библиотека Cleverland (id используется в ссылках футера) */
@@ -41,7 +41,7 @@ export default function LibrarySection() {
 
           <Reveal delay={120}>
             <div className="grid gap-px bg-line sm:grid-cols-2">
-              <div className="flex flex-col justify-center bg-white p-9 transition-colors duration-300 hover:bg-brand-faint">
+              <div className="flex flex-col justify-center bg-surface p-9 transition-colors duration-300 hover:bg-surface-2">
                 <BookIcon className="h-7 w-7 text-brand" />
                 <p className="mt-4 font-display text-3xl font-extrabold tracking-tight text-ink">
                   14 дней
@@ -50,7 +50,7 @@ export default function LibrarySection() {
                   срок выдачи книги домой
                 </p>
               </div>
-              <div className="flex flex-col justify-center bg-white p-9 transition-colors duration-300 hover:bg-brand-faint">
+              <div className="flex flex-col justify-center bg-surface p-9 transition-colors duration-300 hover:bg-surface-2">
                 <ClockIcon className="h-7 w-7 text-brand" />
                 <p className="mt-4 font-display text-3xl font-extrabold tracking-tight text-ink">
                   10:00–21:00
@@ -66,3 +66,4 @@ export default function LibrarySection() {
     </section>
   );
 }
+

@@ -1,4 +1,4 @@
-import Reveal from "./Reveal";
+﻿import Reveal from "./Reveal";
 import SectionHeading from "./SectionHeading";
 import {
   BookIcon,
@@ -59,12 +59,12 @@ export default function WhyUs() {
         <div className="mt-16 grid gap-px bg-line sm:grid-cols-2 lg:grid-cols-3">
           {reasons.map((r, i) => (
             <Reveal key={r.title} delay={(i % 3) * 80}>
-              <div className="group h-full bg-white p-8 transition-colors duration-300 hover:bg-white">
+              <div className="group h-full bg-surface p-8 transition-colors duration-300 hover:bg-surface">
                 <div className="flex items-center justify-between">
                   <div className="flex h-10 w-10 items-center justify-center bg-brand-light text-brand transition-all duration-400 ease-expo-out group-hover:bg-brand group-hover:text-white">
                     {r.icon}
                   </div>
-                  <span className="font-display text-2xl font-extrabold text-ink/10 transition-colors duration-300 group-hover:text-brand/30">
+                  <span className="font-display text-2xl font-extrabold text-white/10 transition-colors duration-300 group-hover:text-brand/30">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                 </div>
@@ -82,3 +82,4 @@ export default function WhyUs() {
     </section>
   );
 }
+

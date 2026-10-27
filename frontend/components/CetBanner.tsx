@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import Reveal from "./Reveal";
 import SectionHeading from "./SectionHeading";
 import { CheckIcon } from "./icons";
@@ -9,7 +9,7 @@ export default function CetBanner() {
   return (
     <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-20 lg:pb-28">
       <Reveal>
-        <div className="border border-line bg-white">
+        <div className="border border-line bg-surface">
           <div className="grid lg:grid-cols-2">
             <div className="p-8 sm:p-12 lg:p-14">
               <SectionHeading
@@ -28,7 +28,7 @@ export default function CetBanner() {
                 {subjects.map((s) => (
                   <span
                     key={s}
-                    className="inline-flex items-center gap-2 border border-line bg-mist px-3.5 py-2 text-sm font-medium text-ink transition-colors duration-300 hover:border-brand hover:bg-brand-faint"
+                    className="inline-flex items-center gap-2 border border-line bg-mist px-3.5 py-2 text-sm font-medium text-ink transition-colors duration-300 hover:border-brand hover:bg-surface-2"
                   >
                     <CheckIcon className="h-4 w-4 text-brand" />
                     {s}
@@ -53,7 +53,7 @@ export default function CetBanner() {
                 { big: "4", small: "предмета на выбор" },
                 { big: "11", small: "класс — ваш шанс всё успеть" },
               ].map((f) => (
-                <div key={f.big} className="flex flex-col justify-center bg-white p-8 text-center transition-colors duration-300 hover:bg-brand-faint">
+                <div key={f.big} className="flex flex-col justify-center bg-surface p-8 text-center transition-colors duration-300 hover:bg-surface-2">
                   <p className="font-display text-4xl font-extrabold tracking-tight text-ink">
                     {f.big}
                   </p>
@@ -67,3 +67,4 @@ export default function CetBanner() {
     </section>
   );
 }
+
