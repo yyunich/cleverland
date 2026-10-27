@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import ApplicationForm from "@/components/ApplicationForm";
 import CourseCard from "@/components/CourseCard";
+import Reveal from "@/components/Reveal";
 import {
   CheckIcon,
   ClockIcon,
@@ -70,7 +71,7 @@ export default async function CoursePage({
       <section className="border-b border-line">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 lg:py-20">
           <div className="grid gap-12 lg:grid-cols-5">
-            <div className="lg:col-span-3">
+            <Reveal className="lg:col-span-3">
               <div className="flex items-center gap-5">
                 <div className="flex h-16 w-16 items-center justify-center bg-brand-light text-brand">
                   <Icon className="h-8 w-8" />
@@ -123,7 +124,7 @@ export default async function CoursePage({
                   </span>
                 ))}
               </div>
-            </div>
+            </Reveal>
 
             {/* Форма */}
             <div className="lg:col-span-2">
@@ -146,7 +147,7 @@ export default async function CoursePage({
       {/* Чему научится */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
         <div className="grid gap-14 lg:grid-cols-2">
-          <div>
+          <Reveal>
             <h2 className="font-display text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">
               Чему научится <span className="text-brand">ребёнок</span>
             </h2>
@@ -167,9 +168,9 @@ export default async function CoursePage({
                 </li>
               ))}
             </ul>
-          </div>
+          </Reveal>
 
-          <div>
+          <Reveal delay={120}>
             <div className="bg-footer p-8 text-white sm:p-10">
               <p className="eyebrow !text-brand">Формат занятий</p>
               <ul className="mt-5 space-y-5 text-[15px]">
@@ -202,27 +203,31 @@ export default async function CoursePage({
                 преподавателем и центром.
               </p>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* Другие курсы */}
       <section className="border-t border-line bg-mist">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
-          <div className="flex items-end justify-between gap-4">
-            <h2 className="font-display text-2xl font-extrabold tracking-tight text-ink sm:text-3xl">
-              Ещё направления
-            </h2>
-            <Link
-              href="/courses"
-              className="text-sm font-semibold text-brand hover:opacity-70"
-            >
-              Весь каталог →
-            </Link>
-          </div>
+          <Reveal>
+            <div className="flex items-end justify-between gap-4">
+              <h2 className="font-display text-2xl font-extrabold tracking-tight text-ink sm:text-3xl">
+                Ещё направления
+              </h2>
+              <Link
+                href="/courses"
+                className="text-sm font-semibold text-brand hover:opacity-70"
+              >
+                Весь каталог →
+              </Link>
+            </div>
+          </Reveal>
           <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {otherCourses.map((c) => (
-              <CourseCard key={c.slug} course={c} compact />
+            {otherCourses.map((c, i) => (
+              <Reveal key={c.slug} delay={i * 70}>
+                <CourseCard course={c} compact />
+              </Reveal>
             ))}
           </div>
         </div>

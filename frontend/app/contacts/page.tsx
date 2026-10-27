@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ApplicationForm from "@/components/ApplicationForm";
+import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
 import {
   ClockIcon,
@@ -52,7 +53,7 @@ export default async function ContactsPage({
 
         <div className="mt-16 grid gap-8 lg:grid-cols-2">
           {/* Контактная информация */}
-          <div className="space-y-px bg-line">
+          <Reveal className="space-y-px bg-line">
             <div className="bg-white p-8">
               <h3 className="font-display text-lg font-extrabold text-ink">
                 Адрес
@@ -162,7 +163,7 @@ export default async function ContactsPage({
                 Открыть на Яндекс.Картах
               </a>
             </div>
-          </div>
+          </Reveal>
 
           {/* Форма */}
           <div>

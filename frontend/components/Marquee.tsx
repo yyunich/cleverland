@@ -22,7 +22,7 @@ export default function Marquee() {
 
   return (
     <div className="overflow-hidden border-b border-line bg-mist py-3.5">
-      <div className="flex w-max animate-marquee">
+      <div className="marquee-track flex w-max animate-marquee">
         <div className="flex shrink-0">{row}</div>
         <div className="flex shrink-0" aria-hidden="true">
           {row}

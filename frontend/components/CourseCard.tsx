@@ -20,7 +20,7 @@ export default function CourseCard({
       }`}
     >
       <div className="flex items-start justify-between gap-4">
-        <div className="flex h-12 w-12 items-center justify-center bg-brand-light text-brand">
+        <div className="flex h-12 w-12 items-center justify-center bg-brand-light text-brand transition-all duration-400 ease-expo-out group-hover:bg-brand group-hover:text-white">
           <Icon className="h-6 w-6" />
         </div>
         <span className="text-sm font-medium text-ink-faint">{course.age}</span>
@@ -39,9 +39,10 @@ export default function CourseCard({
       </p>
 
       <div className="mt-auto pt-6">
-        <span className="inline-flex items-center gap-2 text-sm font-semibold text-ink transition-colors group-hover:text-brand">
+        <span className="relative inline-flex items-center gap-2 text-sm font-semibold text-ink transition-colors duration-300 group-hover:text-brand">
           Подробнее о курсе
-          <ArrowRightIcon className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
+          <ArrowRightIcon className="h-4 w-4 transition-transform duration-400 ease-expo-out group-hover:translate-x-1.5" />
+          <span className="absolute -bottom-1.5 left-0 h-px w-full origin-left scale-x-0 bg-brand transition-transform duration-400 ease-expo-out group-hover:scale-x-100" />
         </span>
       </div>
     </Link>

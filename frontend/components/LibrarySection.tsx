@@ -1,3 +1,4 @@
+import Reveal from "./Reveal";
 import { BookIcon, ClockIcon, CheckIcon } from "./icons";
 
 /** Бесплатная библиотека Cleverland (id используется в ссылках футера) */
@@ -6,7 +7,7 @@ export default function LibrarySection() {
     <section id="library" className="border-t border-line bg-mist">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
         <div className="grid items-center gap-14 lg:grid-cols-2">
-          <div>
+          <Reveal>
             <p className="eyebrow">Бесплатно для резидентов</p>
             <h2 className="mt-4 font-display text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">
               Библиотека <span className="text-brand">Cleverland</span>
@@ -36,28 +37,30 @@ export default function LibrarySection() {
                 Книги по психологии, бизнесу и копирайтингу
               </li>
             </ul>
-          </div>
+          </Reveal>
 
-          <div className="grid gap-px bg-line sm:grid-cols-2">
-            <div className="flex flex-col justify-center bg-white p-9">
-              <BookIcon className="h-7 w-7 text-brand" />
-              <p className="mt-4 font-display text-3xl font-extrabold tracking-tight text-ink">
-                14 дней
-              </p>
-              <p className="mt-1.5 text-sm text-ink-soft">
-                срок выдачи книги домой
-              </p>
+          <Reveal delay={120}>
+            <div className="grid gap-px bg-line sm:grid-cols-2">
+              <div className="flex flex-col justify-center bg-white p-9 transition-colors duration-300 hover:bg-brand-faint">
+                <BookIcon className="h-7 w-7 text-brand" />
+                <p className="mt-4 font-display text-3xl font-extrabold tracking-tight text-ink">
+                  14 дней
+                </p>
+                <p className="mt-1.5 text-sm text-ink-soft">
+                  срок выдачи книги домой
+                </p>
+              </div>
+              <div className="flex flex-col justify-center bg-white p-9 transition-colors duration-300 hover:bg-brand-faint">
+                <ClockIcon className="h-7 w-7 text-brand" />
+                <p className="mt-4 font-display text-3xl font-extrabold tracking-tight text-ink">
+                  10:00–21:00
+                </p>
+                <p className="mt-1.5 text-sm text-ink-soft">
+                  центр открыт ежедневно
+                </p>
+              </div>
             </div>
-            <div className="flex flex-col justify-center bg-white p-9">
-              <ClockIcon className="h-7 w-7 text-brand" />
-              <p className="mt-4 font-display text-3xl font-extrabold tracking-tight text-ink">
-                10:00–21:00
-              </p>
-              <p className="mt-1.5 text-sm text-ink-soft">
-                центр открыт ежедневно
-              </p>
-            </div>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

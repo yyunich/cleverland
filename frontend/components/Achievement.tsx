@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Reveal from "./Reveal";
 import { TrophyIcon } from "./icons";
 
 /** Достижения школы — чёрный CTA-блок в стиле Skillbox */
@@ -7,7 +8,7 @@ export default function Achievement() {
     <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
       <div className="grid gap-0 bg-footer text-white lg:grid-cols-2">
         {/* Левая часть — контент на чёрном */}
-        <div className="p-8 sm:p-12 lg:p-16">
+        <Reveal className="p-8 sm:p-12 lg:p-16">
           <p className="flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em] text-brand">
             <TrophyIcon className="h-5 w-5" />
             Наши достижения
@@ -31,10 +32,13 @@ export default function Achievement() {
           <Link href="/courses" className="btn-white mt-9">
             Выбрать направление
           </Link>
-        </div>
+        </Reveal>
 
         {/* Правая часть — крупная цифра на чёрном */}
-        <div className="flex flex-col justify-center border-t border-white/10 p-8 sm:p-12 lg:border-l lg:border-t-0 lg:p-16">
+        <Reveal
+          delay={120}
+          className="flex flex-col justify-center border-t border-white/10 p-8 sm:p-12 lg:border-l lg:border-t-0 lg:p-16"
+        >
           <p className="font-display text-[5.5rem] font-extrabold leading-none tracking-tight text-white sm:text-[7rem]">
             №2
           </p>
@@ -53,7 +57,7 @@ export default function Achievement() {
               / 36 баллов из максимально возможных
             </span>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

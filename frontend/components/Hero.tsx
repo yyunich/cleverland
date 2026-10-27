@@ -24,7 +24,7 @@ export default function Hero() {
             Набор 2026–2027 · бесплатный пробный урок
           </div>
 
-          <h1 className="animate-fade-up mt-8 font-display text-[2.6rem] font-extrabold leading-[1.08] tracking-tight text-ink sm:text-6xl lg:text-[4.2rem] [animation-delay:80ms]">
+          <h1 className="animate-fade-up mt-8 font-display text-[2.8rem] font-extrabold leading-[1.02] tracking-[-0.03em] text-ink sm:text-7xl lg:text-[5.6rem] [animation-delay:80ms]">
             Влюбляем детей{" "}
             <span className="brand-marker text-brand">в&nbsp;программирование</span>
             <br className="hidden sm:block" />
@@ -54,11 +54,14 @@ export default function Hero() {
         {/* Статистика — квадратные плашки, как у Skillbox */}
         <div className="animate-fade-up mt-16 grid grid-cols-2 gap-px bg-line lg:grid-cols-4 [animation-delay:360ms]">
           {stats.map((s) => (
-            <div key={s.label} className="bg-white px-6 py-7 text-center">
-              <p className="font-display text-4xl font-extrabold tracking-tight text-ink">
+            <div
+              key={s.label}
+              className="group bg-white px-6 py-8 text-center transition-colors duration-300 hover:bg-brand-faint"
+            >
+              <p className="font-display text-5xl font-extrabold tracking-[-0.02em] text-ink transition-transform duration-500 ease-expo-out group-hover:-translate-y-0.5">
                 {s.value}
               </p>
-              <p className="mt-2 text-sm text-ink-soft">{s.label}</p>
+              <p className="mt-2.5 text-sm text-ink-soft">{s.label}</p>
             </div>
           ))}
         </div>

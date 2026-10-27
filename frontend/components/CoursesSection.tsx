@@ -1,5 +1,6 @@
 import Link from "next/link";
 import CourseCard from "./CourseCard";
+import Reveal from "./Reveal";
 import SectionHeading from "./SectionHeading";
 import { categoryOrder, categories, coursesByCategory } from "@/lib/courses";
 
@@ -7,22 +8,24 @@ import { categoryOrder, categories, coursesByCategory } from "@/lib/courses";
 export default function CoursesSection() {
   return (
     <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
-      <SectionHeading
-        eyebrow="Направления"
-        title={
-          <>
-            Каждый найдёт <span className="text-brand">своё</span>
-          </>
-        }
-        subtitle="Мы собрали направления по интересам и возрасту — от первого кода до профессиональной разработки, от языков до подготовки к экзаменам."
-      />
+      <Reveal>
+        <SectionHeading
+          eyebrow="Направления"
+          title={
+            <>
+              Каждый найдёт <span className="text-brand">своё</span>
+            </>
+          }
+          subtitle="Мы собрали направления по интересам и возрасту — от первого кода до профессиональной разработки, от языков до подготовки к экзаменам."
+        />
+      </Reveal>
 
       <div className="mt-16 space-y-20">
         {categoryOrder.map((cat, ci) => {
           const group = coursesByCategory(cat);
           if (group.length === 0) return null;
           return (
-            <div key={cat}>
+            <Reveal key={cat} delay={80}>
               <div className="mb-7 flex items-end justify-between gap-4 border-b border-line pb-5">
                 <div>
                   <p className="eyebrow !text-sm">
@@ -43,11 +46,13 @@ export default function CoursesSection() {
                 </Link>
               </div>
               <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                {group.map((course) => (
-                  <CourseCard key={course.slug} course={course} compact />
+                {group.map((course, i) => (
+                  <Reveal key={course.slug} delay={i * 70}>
+                    <CourseCard course={course} compact />
+                  </Reveal>
                 ))}
               </div>
-            </div>
+            </Reveal>
           );
         })}
       </div>

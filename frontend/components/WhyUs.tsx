@@ -1,3 +1,4 @@
+import Reveal from "./Reveal";
 import SectionHeading from "./SectionHeading";
 import {
   BookIcon,
@@ -57,22 +58,24 @@ export default function WhyUs() {
 
         <div className="mt-16 grid gap-px bg-line sm:grid-cols-2 lg:grid-cols-3">
           {reasons.map((r, i) => (
-            <div key={r.title} className="group bg-white p-8">
-              <div className="flex items-center justify-between">
-                <div className="flex h-10 w-10 items-center justify-center bg-brand-light text-brand transition-colors group-hover:bg-brand group-hover:text-white">
-                  {r.icon}
+            <Reveal key={r.title} delay={(i % 3) * 80}>
+              <div className="group h-full bg-white p-8 transition-colors duration-300 hover:bg-white">
+                <div className="flex items-center justify-between">
+                  <div className="flex h-10 w-10 items-center justify-center bg-brand-light text-brand transition-all duration-400 ease-expo-out group-hover:bg-brand group-hover:text-white">
+                    {r.icon}
+                  </div>
+                  <span className="font-display text-2xl font-extrabold text-ink/10 transition-colors duration-300 group-hover:text-brand/30">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
                 </div>
-                <span className="font-display text-2xl font-extrabold text-ink/10">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
+                <h3 className="mt-6 font-display text-lg font-bold text-ink">
+                  {r.title}
+                </h3>
+                <p className="mt-2.5 text-[15px] leading-relaxed text-ink-soft">
+                  {r.text}
+                </p>
               </div>
-              <h3 className="mt-6 font-display text-lg font-bold text-ink">
-                {r.title}
-              </h3>
-              <p className="mt-2.5 text-[15px] leading-relaxed text-ink-soft">
-                {r.text}
-              </p>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

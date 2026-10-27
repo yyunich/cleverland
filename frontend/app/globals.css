@@ -13,11 +13,49 @@ html {
 body {
   @apply bg-white text-ink font-sans antialiased;
   font-feature-settings: "ss01" on;
+  text-rendering: optimizeLegibility;
 }
 
+/* Доступные и красивые фокус-состояния (Pillar 7) */
+:focus-visible {
+  outline: 2px solid #0050ff;
+  outline-offset: 3px;
+}
 ::selection {
-  background: rgba(0, 80, 255, 0.85);
+  background: rgba(0, 80, 255, 0.9);
   color: #fff;
+}
+
+/* Заголовки без «сирот» и с балансом строк (Pillar 1) */
+h1, h2, h3 {
+  text-wrap: balance;
+}
+
+/* Карточки: прямые углы, тонкая рамка, кастомная кривая движения */
+.card {
+  @apply rounded-none border border-line bg-white;
+  transition:
+    transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.card:hover {
+  @apply border-line shadow-card-hover;
+  transform: translateY(-5px);
+}
+
+/* Кнопки: «магнитный» отклик на кастомной кривой */
+.btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-none font-semibold;
+  transition:
+    background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn:active {
+  transform: translateY(1px) scale(0.99);
 }
 
 /* Тонкая светлая сетка для hero */
@@ -84,6 +122,16 @@ body {
 /* Эй-бров над заголовками */
 .eyebrow {
   @apply text-sm font-semibold uppercase tracking-[0.18em] text-brand;
+}
+
+/* Тонкая синяя линия, «вырастающая» под акцентным словом (signature detail) */
+.brand-marker::after {
+  animation: line-grow 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.7s both;
+}
+
+/* Пауза бегущей строки при наведении */
+.marquee-track:hover > div {
+  animation-play-state: paused;
 }
 
 /* Тонкий скроллбар в светлой теме */
