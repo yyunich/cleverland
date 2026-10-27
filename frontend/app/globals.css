@@ -61,8 +61,16 @@ h1, h2, h3 {
 /* Тонкая светлая сетка для hero */
 .bg-grid-light {
   background-image:
-    linear-gradient(rgba(28, 29, 33, 0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(28, 29, 33, 0.045) 1px, transparent 1px);
+    linear-gradient(rgba(23, 24, 28, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(23, 24, 28, 0.05) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* Тонкая светлая сетка для тёмного hero */
+.bg-grid-dark {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
   background-size: 48px 48px;
 }
 

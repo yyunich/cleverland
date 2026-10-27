@@ -20,7 +20,8 @@ export default function CtaSection({
             <p className="eyebrow">Пробный урок — бесплатно</p>
             <h2 className="mt-4 font-display text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl lg:text-[2.75rem]">
               Попробуйте —{" "}
-              <span className="brand-marker text-brand">это бесплатно</span>
+              <span className="text-brand">это бесплатно</span>
+              <span className="mt-2 block h-[3px] w-16 bg-brand" />
             </h2>
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-white/65">
               Оставьте заявку: администратор перезвонит, подберёт направление

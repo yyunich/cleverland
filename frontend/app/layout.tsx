@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Unbounded } from "next/font/google";
+import { Inter, Roboto_Flex } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -9,10 +9,11 @@ const inter = Inter({
   variable: "--font-sans",
 });
 
-// Дисплейная гарнитура — скульптурная, с полной кириллицей (Pillar 1)
-const display = Unbounded({
+// Дисплейная гарнитура с осями веса И ширины (как Roboto 75..100 у референса):
+// заголовки могут «растягиваться» (wdth) — живая типографика без layout-скачков
+const display = Roboto_Flex({
   subsets: ["cyrillic", "latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  axes: ["wdth"],
   variable: "--font-display",
 });
 

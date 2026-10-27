@@ -26,7 +26,7 @@ export default function CourseCard({
         <span className="text-sm font-medium text-ink-faint">{course.age}</span>
       </div>
 
-      <h3 className="mt-5 font-display text-lg font-bold leading-snug text-ink">
+      <h3 className="mt-5 font-display text-lg font-bold leading-snug text-ink transition-[font-stretch] duration-500 ease-expo-out group-hover:font-stretch-[114%]">
         {course.title}
       </h3>
       <p className="mt-1 text-sm font-semibold text-brand">{course.tagline}</p>
