@@ -1,4 +1,5 @@
 ﻿import Link from "next/link";
+import GiantMarquee from "./GiantMarquee";
 import {
   ClockIcon,
   InstagramIcon,
@@ -156,11 +157,9 @@ export default function Footer() {
           <p>Сайт работает на Next.js + FastAPI</p>
         </div>
 
-        {/* Гигантская контурная типографика — signature detail в футере */}
-        <div className="pointer-events-none mt-10 select-none overflow-hidden" aria-hidden="true">
-          <p className="text-outline-giant-light whitespace-nowrap text-center font-display text-[clamp(2.5rem,11vw,8rem)] font-extrabold leading-[0.88] tracking-tight">
-            CLEVERLAND
-          </p>
+        {/* Гигантский слайд-бар с курсами — signature detail в футере */}
+        <div className="mt-12">
+          <GiantMarquee variant="solid" />
         </div>
       </div>
     </footer>

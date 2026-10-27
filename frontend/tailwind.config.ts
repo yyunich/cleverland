@@ -15,16 +15,19 @@ const config: Config = {
           light: "#E7EEFF",
           faint: "#F2F6FF",
         },
+        // Тёмная тема: светлые токены ink инвертированы (текст светлый)
         ink: {
-          DEFAULT: "#17181C",
-          soft: "#5A5C66",
-          faint: "#8A8C94",
+          DEFAULT: "#E9EAEE",
+          soft: "#9CA0AB",
+          faint: "#6A6E78",
         },
-        mist: "#F6F6F4",
-        line: "#E6E6E4",
+        mist: "#131419",
+        line: "#2A2D35",
         promo: "#FFDD00",
-        footer: "#1E1F24",
-        white: "#FDFDFC",
+        footer: "#0B0C0F",
+        surface: "#17181F",
+        "surface-2": "#1E2129",
+        white: "#FFFFFF",
       },
       fontFamily: {
         display: ["var(--font-display)", "system-ui", "sans-serif"],
@@ -46,6 +49,10 @@ const config: Config = {
           "0%": { transform: "translateX(0)" },
           "100%": { transform: "translateX(-50%)" },
         },
+        "marquee-slow": {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
         "fade-up": {
           "0%": { opacity: "0", transform: "translateY(26px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
@@ -61,6 +68,7 @@ const config: Config = {
       },
       animation: {
         marquee: "marquee 32s linear infinite",
+        "marquee-slow": "marquee-slow 45s linear infinite",
         "fade-up": "fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) both",
         "fade-in": "fade-in 0.6s ease-out both",
         "line-grow": "line-grow 1s cubic-bezier(0.16, 1, 0.3, 1) 0.8s both",

@@ -1,7 +1,7 @@
 import Link from "next/link";
+import GiantMarquee from "./GiantMarquee";
 import LineReveal from "./LineReveal";
 import Magnetic from "./Magnetic";
-import Parallax from "./Parallax";
 import { ClockIcon, PinIcon } from "./icons";
 import { contactInfo } from "@/lib/courses";
 
@@ -39,15 +39,11 @@ export default function Hero() {
       <div className="absolute -top-40 left-1/2 h-[440px] w-[940px] -translate-x-1/2 rounded-full bg-brand/30 blur-[140px]" />
       <div className="absolute right-[-10%] top-1/3 h-72 w-72 rounded-full bg-brand/15 blur-[110px]" />
 
-      {/* Signature moment: гигантская контурная типографика за hero */}
-      <Parallax
-        speed={0.14}
-        className="pointer-events-none absolute top-8 right-0 left-0 select-none"
-      >
-        <p className="text-outline-giant-light whitespace-nowrap text-center font-display text-[clamp(3rem,13vw,9.5rem)] font-extrabold leading-[0.9] tracking-tight">
-          CLEVERLAND
-        </p>
-      </Parallax>
+      {/* Signature moment: гигантский слайд-бар с курсами за hero */}
+      <GiantMarquee
+        variant="outline"
+        className="pointer-events-none absolute top-6 right-0 left-0 z-0"
+      />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-16 pb-20 lg:pt-24 lg:pb-24">
         <div className="mx-auto max-w-4xl text-center">

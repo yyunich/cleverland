@@ -11,7 +11,7 @@ html {
 }
 
 body {
-  @apply bg-white text-ink font-sans antialiased;
+  @apply bg-footer text-ink font-sans antialiased;
   font-feature-settings: "ss01" on;
   text-rendering: optimizeLegibility;
 }
@@ -33,14 +33,15 @@ h1, h2, h3 {
 
 /* Карточки: прямые углы, тонкая рамка, кастомная кривая движения */
 .card {
-  @apply rounded-none border border-line bg-white;
+  @apply rounded-none border border-line bg-surface;
   transition:
     transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
     box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1),
     border-color 0.45s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .card:hover {
-  @apply border-line shadow-card-hover;
+  @apply shadow-card-hover;
+  border-color: rgba(255, 255, 255, 0.16);
   transform: translateY(-5px);
 }
 
@@ -102,16 +103,17 @@ h1, h2, h3 {
   @apply btn bg-brand px-6 py-3.5 text-base text-white hover:bg-brand-dark active:translate-y-px;
 }
 
+/* «Тёмная» кнопка: в тёмной теме это светлая (белая) для контраста */
 .btn-dark {
-  @apply btn bg-ink px-6 py-3.5 text-base text-white hover:bg-black active:translate-y-px;
+  @apply btn bg-white px-6 py-3.5 text-base text-footer hover:bg-ink-soft active:translate-y-px;
 }
 
 .btn-outline {
-  @apply btn border border-line bg-transparent px-6 py-3.5 text-base text-ink hover:border-ink active:translate-y-px;
+  @apply btn border border-line bg-transparent px-6 py-3.5 text-base text-ink hover:border-white/40 active:translate-y-px;
 }
 
 .btn-white {
-  @apply btn bg-white px-6 py-3.5 text-base text-ink hover:bg-mist active:translate-y-px;
+  @apply btn bg-white px-6 py-3.5 text-base text-footer hover:bg-ink-soft active:translate-y-px;
 }
 
 .btn-ghost-dark {
