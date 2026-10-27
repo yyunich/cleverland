@@ -155,6 +155,13 @@ export default function Footer() {
           <p>© {year} ООО «КЛЕВЕРЛЕНД» · IT-школа Cleverland · г. Орша, ул. Мира, 8</p>
           <p>Сайт работает на Next.js + FastAPI</p>
         </div>
+
+        {/* Гигантская контурная типографика — signature detail в футере */}
+        <div className="pointer-events-none mt-10 select-none overflow-hidden" aria-hidden="true">
+          <p className="text-outline-giant-light whitespace-nowrap text-center font-display text-[17vw] font-extrabold leading-[0.85] tracking-tight">
+            CLEVERLAND
+          </p>
+        </div>
       </div>
     </footer>
   );

@@ -27,7 +27,7 @@ const config: Config = {
         white: "#FDFDFC",
       },
       fontFamily: {
-        display: ["var(--font-sans)", "system-ui", "sans-serif"],
+        display: ["var(--font-display)", "system-ui", "sans-serif"],
         sans: ["var(--font-sans)", "system-ui", "sans-serif"],
       },
       transitionTimingFunction: {

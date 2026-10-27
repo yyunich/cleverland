@@ -36,6 +36,15 @@ describe("ApplicationForm", () => {
     expect(select.value).toBe("python");
   });
 
+  it("рендерит тёмную версию формы (theme=dark) с сохранением всех полей", () => {
+    render(<ApplicationForm theme="dark" />);
+    expect(screen.getByPlaceholderText("Имя родителя *")).toBeInTheDocument();
+    expect(screen.getByPlaceholderText("Телефон *")).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", { name: /Записаться на бесплатный пробный урок/ })
+    ).toBeInTheDocument();
+  });
+
   it("отправляет заявку и показывает сообщение об успехе", async () => {
     const user = userEvent.setup();
     const fetchMock = fetchSuccess();

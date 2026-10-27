@@ -134,6 +134,21 @@ h1, h2, h3 {
   animation-play-state: paused;
 }
 
+/* Гигантская контурная типографика — signature moment (Pillar 2/5) */
+.text-outline-giant {
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(23, 24, 28, 0.09);
+}
+.text-outline-giant-light {
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.07);
+}
+
+/* Поля формы на тёмном фоне */
+.field-dark {
+  @apply w-full rounded-none border-0 border-b border-white/25 bg-transparent px-0 py-3 text-base text-white placeholder:text-white/40 outline-none transition-colors focus:border-white;
+}
+
 /* Тонкий скроллбар в светлой теме */
 ::-webkit-scrollbar {
   width: 10px;
